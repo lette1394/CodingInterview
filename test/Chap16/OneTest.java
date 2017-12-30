@@ -18,6 +18,7 @@ public class OneTest {
     @Test
     public void test2() {
         assertArrayEquals(new int[] {1, 2, 3}, One.arrays());
+        System.out.println("test");
     }
 }
 
