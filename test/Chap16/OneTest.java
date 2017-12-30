@@ -15,6 +15,10 @@ public class OneTest {
         assertArrayEquals(new int[] {0, 1, 2}, One.arrays());
     }
 
+    @Test
+    public void test2() {
+        assertArrayEquals(new int[] {1, 2, 3}, One.arrays());
+    }
 }
 
 
