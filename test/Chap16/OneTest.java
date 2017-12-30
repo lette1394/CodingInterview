@@ -10,6 +10,11 @@ public class OneTest {
         assertEquals("hello world!", One.ex1());
     }
 
+    @Test
+    public void test1() {
+        assertArrayEquals(new int[] {0, 1, 2}, One.arrays());
+    }
+
 }
 
 

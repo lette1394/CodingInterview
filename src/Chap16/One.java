@@ -9,4 +9,8 @@ public class One {
     public static void main(String[] args) {
         System.out.println("hello");
     }
+
+    static int[] arrays() {
+        return new int[] {0, 1, 2};
+    }
 }
