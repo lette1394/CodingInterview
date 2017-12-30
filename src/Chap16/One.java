@@ -13,4 +13,8 @@ public class One {
     static int[] arrays() {
         return new int[] {0, 1, 2};
     }
+
+    static int[] arrays2() {
+        return new int[] {1, 2, 3};
+    }
 }
