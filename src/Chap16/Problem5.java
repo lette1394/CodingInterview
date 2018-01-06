@@ -57,4 +57,18 @@ public class Problem5 {
     }
 
 
+    public int getNumberOfTen(int value) {
+        int temp = value;
+        int count = 0;
+
+        while (temp != 0) {
+            if (temp % 10 == 0) {
+                count++;
+                temp /= 10;
+            } else {
+                return count;
+            }
+        }
+        return 0;
+    }
 }

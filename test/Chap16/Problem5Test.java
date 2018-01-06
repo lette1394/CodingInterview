@@ -62,6 +62,21 @@ public class Problem5Test {
         assertEquals(4, problem5.getNumberOfFive(625));
         assertEquals(5, problem5.getNumberOfFive(3125));
     }
+
+    @Test
+    public void numberOfTen() {
+        assertEquals(0, problem5.getNumberOfTen(0));
+        assertEquals(0, problem5.getNumberOfTen(1));
+        assertEquals(0, problem5.getNumberOfTen(2));
+        assertEquals(0, problem5.getNumberOfTen(3));
+        assertEquals(0, problem5.getNumberOfTen(4));
+        assertEquals(0, problem5.getNumberOfTen(5));
+
+        assertEquals(1, problem5.getNumberOfTen(10));
+        assertEquals(1, problem5.getNumberOfTen(20));
+        assertEquals(2, problem5.getNumberOfTen(100));
+        assertEquals(3, problem5.getNumberOfTen(1000));
+    }
 }
 
 
