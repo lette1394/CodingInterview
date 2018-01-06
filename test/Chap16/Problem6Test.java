@@ -18,6 +18,11 @@ public class Problem6Test {
                 new int[] {1, 3, 15, 11, 2},
                 new int[] {23, 127, 235, 19, 8})
         );
+
+        assertEquals(1, p6.getMinAbsValueOfMinusBetweenSORT(
+                new int[] {5, 11, 19, 23, 56, 200},
+                new int[] {15, 17, 20, 41, 100})
+        );
     }
     @Test
     public void finalSORT() {
@@ -26,14 +31,9 @@ public class Problem6Test {
                 new int[] {23, 127, 235, 19, 8})
         );
 
-        assertEquals(3, p6.getMinAbsValueOfMinusBetweenSORT(
-                new int[] {1, 3, 15, 11, 2},
-                new int[] {23, 127, 235, 19, 8})
-        );
-
-        assertEquals(3, p6.getMinAbsValueOfMinusBetweenSORT(
-                new int[] {1, 3, 15, 11, 2},
-                new int[] {23, 127, 235, 19, 8})
+        assertEquals(1, p6.getMinAbsValueOfMinusBetweenSORT(
+                new int[] {5, 11, 19, 23, 56, 200},
+                new int[] {15, 17, 20, 41, 100})
         );
     }
 

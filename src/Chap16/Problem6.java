@@ -30,18 +30,21 @@ public class Problem6 {
 
         for (int i = 0, j = 0; i < array1.length && j < array2.length;) {
             if (array1[i] > array2[j]) {
-                minGap = Math.min(minGap, array1[i] - array2[j]);
+                int currentGap = Math.abs(array1[i] - array2[j]);
+
+                minGap = Math.min(minGap, currentGap);
                 j++;
             }
             else if (array1[i] < array2[j]) {
-                minGap = Math.min(minGap, array2[i] - array1[j]);
+                int currentGap = Math.abs(array1[i] - array2[j]);
+
+                minGap = Math.min(minGap, currentGap);
                 i++;
             }
             else {
                 return 0;
             }
         }
-
 
         return minGap;
     }
