@@ -43,7 +43,25 @@ public class Problem5Test {
         assertEquals(7, problem5.getNumberOfTwo(128));
     }
 
+    @Test
+    public void numberOfFive() {
+        assertEquals(0, problem5.getNumberOfFive(0));
+        assertEquals(0, problem5.getNumberOfFive(1));
+        assertEquals(0, problem5.getNumberOfFive(2));
+        assertEquals(0, problem5.getNumberOfFive(3));
+        assertEquals(0, problem5.getNumberOfFive(4));
+        assertEquals(1, problem5.getNumberOfFive(5));
+        assertEquals(0, problem5.getNumberOfFive(6));
+        assertEquals(0, problem5.getNumberOfFive(7));
+        assertEquals(0, problem5.getNumberOfFive(8));
+        assertEquals(0, problem5.getNumberOfFive(9));
+        assertEquals(1, problem5.getNumberOfFive(10));
 
+        assertEquals(2, problem5.getNumberOfFive(25));
+        assertEquals(3, problem5.getNumberOfFive(125));
+        assertEquals(4, problem5.getNumberOfFive(625));
+        assertEquals(5, problem5.getNumberOfFive(3125));
+    }
 }
 
 

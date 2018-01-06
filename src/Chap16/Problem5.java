@@ -40,4 +40,21 @@ public class Problem5 {
         return 0;
     }
 
+    public int getNumberOfFive(int value) {
+        int temp = value;
+        int count = 0;
+
+        while (temp != 0) {
+            if (temp % 5 == 0) {
+                count++;
+                temp /= 5;
+            } else {
+                return count;
+            }
+        }
+
+        return 0;
+    }
+
+
 }
