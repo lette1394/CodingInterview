@@ -2,22 +2,22 @@ package Chap16;
 
 public class Problem5 {
 
-    public int getFactorial(int value) {
+    public long getFactorial(long value) {
         if (value == 0 || value == 1) {
             return 1;
         }
 
-        int sum = 1;
-        for (int i = 1; i <= value; i++) {
+        long sum = 1;
+        for (long i = 1; i <= value; i++) {
             sum *= i;
         }
 
         return sum;
     }
 
-    public int getNumberOfTwo(int value) {
-        int temp = value;
-        int count = 0;
+    public long getNumberOfTwo(long value) {
+        long temp = value;
+        long count = 0;
 
         while (temp != 0) {
             if (temp % 2 == 0) {
@@ -31,9 +31,9 @@ public class Problem5 {
         return 0;
     }
 
-    public int getNumberOfFive(int value) {
-        int temp = value;
-        int count = 0;
+    public long getNumberOfFive(long value) {
+        long temp = value;
+        long count = 0;
 
         while (temp != 0) {
             if (temp % 5 == 0) {
@@ -47,9 +47,9 @@ public class Problem5 {
         return 0;
     }
 
-    public int getNumberOfTen(int value) {
-        int temp = value;
-        int count = 0;
+    public long getNumberOfTen(long value) {
+        long temp = value;
+        long count = 0;
 
         while (temp != 0) {
             if (temp % 10 == 0) {
