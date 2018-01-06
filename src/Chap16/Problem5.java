@@ -15,19 +15,19 @@ public class Problem5 {
         return result;
     }
 
-    public long getNumberOfTwo(long value) {
+    public int getNumberOfTwo(long value) {
         return getCountOnDivide(value, 2);
     }
 
-    public long getNumberOfFive(long value) {
+    public int getNumberOfFive(long value) {
         return getCountOnDivide(value, 5);
     }
 
-    public long getNumberOfTen(long value) {
+    public int getNumberOfTen(long value) {
         return getCountOnDivide(value, 10);
     }
 
-    private long getCountOnDivide(long originValue, int divider) {
+    private int getCountOnDivide(long originValue, int divider) {
         long dividedValue = originValue;
         int count = 0;
 
@@ -44,7 +44,7 @@ public class Problem5 {
         return count;
     }
 
-    public long minNumberOfTwoOrFive(long factorial) {
+    public int minNumberOfTwoOrFive(long factorial) {
         return Math.min(getNumberOfTwo(factorial), getNumberOfFive(factorial));
     }
 }
