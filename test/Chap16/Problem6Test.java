@@ -9,7 +9,7 @@ public class Problem6Test {
 
     @Before
     public void before() {
-        Problem6 p6 = new Problem6();
+        this.p6 = new Problem6();
     }
 
     @Test
