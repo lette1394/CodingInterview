@@ -43,4 +43,8 @@ public class Problem5 {
 
         return count;
     }
+
+    public long minNumberOfTwoOrFive(long factorial) {
+        return Math.min(getNumberOfTwo(factorial), getNumberOfFive(factorial));
+    }
 }
