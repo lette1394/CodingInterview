@@ -16,54 +16,19 @@ public class Problem5 {
     }
 
     public long getNumberOfTwo(long value) {
-        long temp = value;
-        long count = 0;
-
-        while (temp != 0) {
-            if (temp % 2 == 0) {
-                count++;
-                temp /= 2;
-            } else {
-                return count;
-            }
-        }
-
-        return 0;
+        return getCountOnDivide(value, 2);
     }
 
     public long getNumberOfFive(long value) {
-        long temp = value;
-        long count = 0;
-
-        while (temp != 0) {
-            if (temp % 5 == 0) {
-                count++;
-                temp /= 5;
-            } else {
-                return count;
-            }
-        }
-
-        return 0;
+        return getCountOnDivide(value, 5);
     }
 
     public long getNumberOfTen(long value) {
-        long temp = value;
-        long count = 0;
-
-        while (temp != 0) {
-            if (temp % 10 == 0) {
-                count++;
-                temp /= 10;
-            } else {
-                return count;
-            }
-        }
-        return 0;
+        return getCountOnDivide(value, 10);
     }
 
-    private long getCountOnDivide(int value, int divider) {
-        int temp = value;
+    private long getCountOnDivide(long value, int divider) {
+        long temp = value;
         int count = 0;
 
         while (temp != 0) {
