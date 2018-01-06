@@ -139,6 +139,8 @@ public class Problem5Test {
         assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(14)));
         assertEquals(3, problem5.minNumberOfTwoOrFive(problem5.getFactorial(15)));
         assertEquals(3, problem5.minNumberOfTwoOrFive(problem5.getFactorial(16)));
+
+        assertEquals(31, problem5.minNumberOfTwoOrFive(problem5.getFactorial(125)));
     }
 }
 
