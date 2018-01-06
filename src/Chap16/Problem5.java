@@ -22,4 +22,10 @@ public class Problem5 {
 
         return sum;
     }
+
+
+    public int getNumberOfTwo(int i) {
+
+        return 0;
+    }
 }
