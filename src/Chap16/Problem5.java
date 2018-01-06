@@ -7,12 +7,12 @@ public class Problem5 {
             return 1;
         }
 
-        long sum = 1;
+        long result = 1;
         for (long i = 1; i <= value; i++) {
-            sum *= i;
+            result *= i;
         }
 
-        return sum;
+        return result;
     }
 
     public long getNumberOfTwo(long value) {
@@ -28,13 +28,13 @@ public class Problem5 {
     }
 
     private long getCountOnDivide(long value, int divider) {
-        long temp = value;
+        long dividedValue = value;
         int count = 0;
 
-        while (temp != 0) {
-            if (temp % divider == 0) {
+        while (dividedValue != 0) {
+            if (dividedValue % divider == 0) {
                 count++;
-                temp /= divider;
+                dividedValue /= divider;
             } else {
                 return count;
             }
