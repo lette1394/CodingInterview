@@ -42,6 +42,8 @@ public class Problem5Test {
         assertEquals(6, problem5.getNumberOfTwo(64));
         assertEquals(7, problem5.getNumberOfTwo(128));
     }
+
+
 }
 
 
