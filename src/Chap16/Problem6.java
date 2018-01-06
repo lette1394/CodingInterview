@@ -1,9 +1,11 @@
 package Chap16;
 
+import java.util.Arrays;
+
 public class Problem6 {
 
-    public int getMinAbsValueOfMinusBetween(int[] array1, int[] array2) {
-        int MIN_VALUE = 987654321;
+    public int getMinAbsValueOfMinusBetweenBRUTE(int[] array1, int[] array2) {
+        int lastGap = Integer.MAX_VALUE;
 
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array2.length; j++) {
@@ -11,12 +13,36 @@ public class Problem6 {
                 int minusResult = array1[i] - array2[j];
                 int absResult = Math.abs(minusResult);
 
-                if (MIN_VALUE > absResult) {
-                    MIN_VALUE = absResult;
+                if (lastGap > absResult) {
+                    lastGap = absResult;
                 }
             }
         }
 
-        return MIN_VALUE;
+        return lastGap;
+    }
+
+    public int getMinAbsValueOfMinusBetweenSORT(int[] array1, int[] array2) {
+        int lastGap = Integer.MAX_VALUE;
+
+        Arrays.sort(array1);
+        Arrays.sort(array2);
+
+        for (int i = 0, j = 0; i < array1.length && j < array2.length; ) {
+            if (array1[i] > array2[j]) {
+                lastGap = Math.min(lastGap, array1[i] - array2[j]);
+                j++;
+            }
+            else if (array1[i] < array2[j]) {
+                lastGap = Math.min(lastGap, array2[i] - array1[j]);
+                i++;
+            }
+            else {
+                return 0;
+            }
+        }
+
+
+        return lastGap;
     }
 }
