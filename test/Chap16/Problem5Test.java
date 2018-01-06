@@ -77,6 +77,30 @@ public class Problem5Test {
         assertEquals(2, problem5.getNumberOfTen(100));
         assertEquals(3, problem5.getNumberOfTen(1000));
     }
+
+    @Test
+    public void numberOfTenInFactorial() {
+        int factorial1 = problem5.getFactorial(0);
+        assertEquals(0, problem5.getNumberOfTen(factorial1));
+
+        int factorial2 = problem5.getFactorial(1);
+        assertEquals(0, problem5.getNumberOfTen(factorial2));
+
+        int factorial3 = problem5.getFactorial(2);
+        assertEquals(0, problem5.getNumberOfTen(factorial3));
+
+        int factorial4 = problem5.getFactorial(3);
+        assertEquals(0, problem5.getNumberOfTen(factorial4));
+
+        int factorial5 = problem5.getFactorial(4);
+        assertEquals(0, problem5.getNumberOfTen(factorial5));
+
+        int factorial6 = problem5.getFactorial(5);
+        assertEquals(0, problem5.getNumberOfTen(factorial6));
+
+
+
+    }
 }
 
 

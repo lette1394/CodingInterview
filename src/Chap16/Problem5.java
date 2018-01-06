@@ -2,14 +2,6 @@ package Chap16;
 
 public class Problem5 {
 
-    static String ex1() {
-        return "hello world!";
-    }
-
-    public static void main(String[] args) {
-        System.out.println("hello");
-    }
-
     public int getFactorial(int value) {
         if (value == 0 || value == 1) {
             return 1;
@@ -22,7 +14,6 @@ public class Problem5 {
 
         return sum;
     }
-
 
     public int getNumberOfTwo(int value) {
         int temp = value;
@@ -56,7 +47,6 @@ public class Problem5 {
         return 0;
     }
 
-
     public int getNumberOfTen(int value) {
         int temp = value;
         int count = 0;
@@ -71,4 +61,7 @@ public class Problem5 {
         }
         return 0;
     }
+
+
+
 }
