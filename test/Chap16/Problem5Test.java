@@ -98,6 +98,48 @@ public class Problem5Test {
         assertEquals(3, problem5.getNumberOfTen(problem5.getFactorial(15)));
         assertEquals(3, problem5.getNumberOfTen(problem5.getFactorial(16)));
     }
+
+    @Test
+    public void numberOfFiveInFactorial() {
+        assertEquals(0, problem5.getNumberOfFive(problem5.getFactorial(0)));
+        assertEquals(0, problem5.getNumberOfFive(problem5.getFactorial(1)));
+        assertEquals(0, problem5.getNumberOfFive(problem5.getFactorial(2)));
+        assertEquals(0, problem5.getNumberOfFive(problem5.getFactorial(3)));
+        assertEquals(0, problem5.getNumberOfFive(problem5.getFactorial(4)));
+        assertEquals(1, problem5.getNumberOfFive(problem5.getFactorial(5)));
+        assertEquals(1, problem5.getNumberOfFive(problem5.getFactorial(6)));
+        assertEquals(1, problem5.getNumberOfFive(problem5.getFactorial(7)));
+        assertEquals(1, problem5.getNumberOfFive(problem5.getFactorial(8)));
+        assertEquals(1, problem5.getNumberOfFive(problem5.getFactorial(9)));
+        assertEquals(2, problem5.getNumberOfFive(problem5.getFactorial(10)));
+        assertEquals(2, problem5.getNumberOfFive(problem5.getFactorial(11)));
+        assertEquals(2, problem5.getNumberOfFive(problem5.getFactorial(12)));
+        assertEquals(2, problem5.getNumberOfFive(problem5.getFactorial(13)));
+        assertEquals(2, problem5.getNumberOfFive(problem5.getFactorial(14)));
+        assertEquals(3, problem5.getNumberOfFive(problem5.getFactorial(15)));
+        assertEquals(3, problem5.getNumberOfFive(problem5.getFactorial(16)));
+    }
+
+    @Test
+    public void minNumberOfTwoOrFiveInFactorial() {
+        assertEquals(0, problem5.minNumberOfTwoOrFive(problem5.getFactorial(0)));
+        assertEquals(0, problem5.minNumberOfTwoOrFive(problem5.getFactorial(1)));
+        assertEquals(0, problem5.minNumberOfTwoOrFive(problem5.getFactorial(2)));
+        assertEquals(0, problem5.minNumberOfTwoOrFive(problem5.getFactorial(3)));
+        assertEquals(0, problem5.minNumberOfTwoOrFive(problem5.getFactorial(4)));
+        assertEquals(1, problem5.minNumberOfTwoOrFive(problem5.getFactorial(5)));
+        assertEquals(1, problem5.minNumberOfTwoOrFive(problem5.getFactorial(6)));
+        assertEquals(1, problem5.minNumberOfTwoOrFive(problem5.getFactorial(7)));
+        assertEquals(1, problem5.minNumberOfTwoOrFive(problem5.getFactorial(8)));
+        assertEquals(1, problem5.minNumberOfTwoOrFive(problem5.getFactorial(9)));
+        assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(10)));
+        assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(11)));
+        assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(12)));
+        assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(13)));
+        assertEquals(2, problem5.minNumberOfTwoOrFive(problem5.getFactorial(14)));
+        assertEquals(3, problem5.minNumberOfTwoOrFive(problem5.getFactorial(15)));
+        assertEquals(3, problem5.minNumberOfTwoOrFive(problem5.getFactorial(16)));
+    }
 }
 
 

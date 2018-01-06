@@ -27,15 +27,16 @@ public class Problem5 {
         return getCountOnDivide(value, 10);
     }
 
-    private long getCountOnDivide(long value, int divider) {
-        long dividedValue = value;
+    private long getCountOnDivide(long originValue, int divider) {
+        long dividedValue = originValue;
         int count = 0;
 
         while (dividedValue != 0) {
             if (dividedValue % divider == 0) {
                 count++;
                 dividedValue /= divider;
-            } else {
+            }
+            else {
                 return count;
             }
         }
