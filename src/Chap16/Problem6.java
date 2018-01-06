@@ -7,8 +7,12 @@ public class Problem6 {
 
         for (int i = 0; i < array1.length; i++) {
             for (int j = 0; j < array2.length; j++) {
-                if (MIN_VALUE > Math.abs(array1[i] - array2[j])) {
-                    MIN_VALUE = Math.abs(array1[i] - array2[j]);
+
+                int minusResult = array1[i] - array2[j];
+                int absResult = Math.abs(minusResult);
+
+                if (MIN_VALUE > absResult) {
+                    MIN_VALUE = absResult;
                 }
             }
         }
