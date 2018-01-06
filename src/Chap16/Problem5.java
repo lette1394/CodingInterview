@@ -62,6 +62,19 @@ public class Problem5 {
         return 0;
     }
 
+    private long getCountOnDivide(int value, int divider) {
+        int temp = value;
+        int count = 0;
 
+        while (temp != 0) {
+            if (temp % divider == 0) {
+                count++;
+                temp /= divider;
+            } else {
+                return count;
+            }
+        }
 
+        return count;
+    }
 }
