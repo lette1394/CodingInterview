@@ -95,4 +95,24 @@ public class Problem8Test {
         assertEquals("Two Hundred Seventy One", p8.parse(271));
     }
 
+    @Test
+    public void placeValue() {
+        assertEquals(1, p8.getPlaceValue(0));
+        assertEquals(1, p8.getPlaceValue(1));
+
+        assertEquals(2, p8.getPlaceValue(10));
+        assertEquals(2, p8.getPlaceValue(94));
+
+        assertEquals(3, p8.getPlaceValue(100));
+        assertEquals(4, p8.getPlaceValue(1010));
+    }
+
+    @Test
+    public void getEachValues() {
+        assertArrayEquals(new int[] {0}, p8.getEachValues(0));
+        assertArrayEquals(new int[] {1, 0}, p8.getEachValues(10));
+        assertArrayEquals(new int[] {1, 2, 0}, p8.getEachValues(120));
+        assertArrayEquals(new int[] {8, 1, 4, 6}, p8.getEachValues(8146));
+    }
+
 }
