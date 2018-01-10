@@ -9,7 +9,6 @@ public class Problem2 {
         this.grid = grid;
         rowMax = grid.length - 1;
         colMax = grid[0].length - 1;
-        cache = new int[100][100];
     }
 
     int getCountOf(int[][] grid) {
@@ -27,12 +26,7 @@ public class Problem2 {
             return 1;
         }
         else {
-            if (cache[x][y] != 0) {
-                return cache[x][y];
-            }
-            else {
-                return cache[x][y] = countImpl(x + 1, y) + countImpl(x, y + 1);
-            }
+            return countImpl(x + 1, y) + countImpl(x, y + 1);
         }
     }
 
