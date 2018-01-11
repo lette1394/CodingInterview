@@ -53,26 +53,29 @@ public class Problem12 {
         throw new EOFException();
     }
 
-    public String parseXML() {
+    public String parseOneLine() {
         String string = removeQuotes(readElement());
         String[] oneElement = string.split(" ");
 
-        if (hasAttributes(oneElement)) {
-            addToEncodedString(oneElement[0]);
+        int encodedTag = getMapValue(oneElement[0]);
+        addToEncodedString(encodedTag);
 
-            for (int i = 1; i < oneElement.length-1; i++) {
+        if (hasAttributes(oneElement)) {
+            for (int i = 1; i < oneElement.length; i++) {
                 String attr = getAttribute(oneElement[i]);
-                addToEncodedString(attr);
+                int encoded = getMapValue(attr);
+                addToEncodedString(encoded);
 
                 String value = getValue(oneElement[i]);
                 addToEncodedString(value);
             }
         }
-        else {
-            addToEncodedString(oneElement[0]);
-        }
 
         return printXML();
+    }
+
+    private void addToEncodedString(Object encoded) {
+        encodedString.add(String.valueOf(encoded));
     }
 
     private String getValue(String splited) {
@@ -83,15 +86,14 @@ public class Problem12 {
         return splited.length > 1;
     }
 
-    void addToEncodedString(String key) {
+    int getMapValue(String key) {
         if (match.containsKey(key)) {
             int encoded = match.get(key);
-            encodedString.add(String.valueOf(encoded));
+            return encoded;
         }
         else {
             match.put(key, index);
-            encodedString.add(String.valueOf(index));
-            index++;
+            return index++;
         }
     }
 

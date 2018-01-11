@@ -47,6 +47,13 @@ public class Problem12Test {
 
     @Test
     public void finalTest() {
-        assertEquals("1 2 McDowell 3 CA", p10.parseXML());
+        assertEquals("1 2 McDowell 3 CA", p10.parseOneLine());
+        assertEquals("1 2 McDowell 3 CA 4 5 Gayle", p10.parseOneLine());
+        assertEquals("1 2 McDowell 3 CA 4 5 Gayle 6", p10.parseOneLine());
+        assertEquals("1 2 McDowell 3 CA 4 5 Gayle 6 7", p10.parseOneLine());
+        assertEquals("1 2 McDowell 3 CA 4 5 Gayle 6 7 8", p10.parseOneLine());
     }
+
+
 }
+;
