@@ -17,19 +17,21 @@ public class Problem5 {
         }
 
 
-        while(strings[rightMid].equals("") && rightMid <= right) {
+        while(isEmpty(strings, rightMid) && rightMid < right) {
             rightMid++;
         }
         if (strings[rightMid].equals(target)) {
             return rightMid;
         }
 
-        while(strings[leftMid].equals("") && left <= leftMid) {
+
+        while(isEmpty(strings, leftMid) && left < leftMid) {
             leftMid--;
         }
         if (strings[leftMid].equals(target)) {
             return leftMid;
         }
+
 
 
         if (target.compareTo(strings[leftMid]) < 0) {
@@ -41,5 +43,9 @@ public class Problem5 {
         else {
             return sparseSearch(target, strings, leftMid + 1, rightMid);
         }
+    }
+
+    boolean isEmpty(String[] strings, int index) {
+        return strings[index].equals("");
     }
 }
