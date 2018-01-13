@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class UnderStairs {
-    int[][] grid;
-    int[][] cache;
+    private int[][] grid;
+    private int[][] cache;
 
     int count(int[][] grid) {
         this.grid = grid;
@@ -21,35 +21,39 @@ public class UnderStairs {
         return count(0, 0);
     }
 
-    int count(int x, int y) {
+    private int count(int x, int y) {
         int result = 0;
         int currentValue = grid[y][x];
-
-        if (cache[y][x] > 0) {
-            return cache[y][x];
-        }
 
         if (isArrived(x, y)) {
             return 1;
         }
 
-        if (isValid(x+1, y, currentValue)) {
-            result += count(x+1, y);
+        if (cache[y][x] > 0) {
+            return cache[y][x];
         }
-        if (isValid(x-1, y, currentValue)) {
-            result += count(x-1, y);
-        }
-        if (isValid(x, y+1, currentValue)) {
-            result += count(x, y+1);
-        }
-        if (isValid(x, y-1, currentValue)) {
-            result += count(x, y-1);
+
+        if (cache[y][x] == -1) {
+            cache[y][x] = 0;
+
+            if (isValid(x + 1, y, currentValue)) {
+                result += count(x + 1, y);
+            }
+            if (isValid(x - 1, y, currentValue)) {
+                result += count(x - 1, y);
+            }
+            if (isValid(x, y + 1, currentValue)) {
+                result += count(x, y + 1);
+            }
+            if (isValid(x, y - 1, currentValue)) {
+                result += count(x, y - 1);
+            }
         }
         return cache[y][x] = result;
     }
 
     private boolean isValid(int x, int y, int currentValue) {
-        return isUnderBoundary(x, y) && isDownSide(x, y, currentValue);
+        return isUnderBoundary(x, y) && isToDownSide(x, y, currentValue);
     }
 
     private boolean isUnderBoundary(int x, int y) {
@@ -60,7 +64,7 @@ public class UnderStairs {
         return x == grid[0].length-1 && y == grid.length-1;
     }
 
-    private boolean isDownSide(int x, int y, int beforeValue) {
+    private boolean isToDownSide(int x, int y, int beforeValue) {
         return grid[y][x] < beforeValue;
     }
 
