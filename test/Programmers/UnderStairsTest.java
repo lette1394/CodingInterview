@@ -2,7 +2,12 @@ package Programmers;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
 
 public class UnderStairsTest {
 
@@ -48,4 +53,21 @@ public class UnderStairsTest {
         }));
     }
 
+    @Test
+    public void parseFromSTDIN() {
+        String data = "4 5\n" +
+                "50 45 37 32 30\n" +
+                "35 50 40 20 25\n" +
+                "30 30 25 17 28\n" +
+                "27 24 22 15 10";
+
+        System.setIn(new ByteArrayInputStream(data.getBytes()));
+
+        assertArrayEquals(new int[][] {
+                {50, 45, 37, 32, 30},
+                {35, 50, 40, 20, 25},
+                {30, 30, 25, 17, 28},
+                {27, 24, 22, 15, 10}
+        }, u.parse());
+    }
 }

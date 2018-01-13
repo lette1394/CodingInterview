@@ -1,5 +1,6 @@
 package Programmers;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 public class UnderStairs {
@@ -68,5 +69,20 @@ public class UnderStairs {
 
     private boolean isDownSide(int x, int y, int pre) {
         return grid[y][x] < pre;
+    }
+
+    int[][] parse() {
+        Scanner sc = new Scanner(System.in);
+
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        int[][] result = new int[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result[i][j] = sc.nextInt();
+            }
+        }
+        return result;
     }
 }
