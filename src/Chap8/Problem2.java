@@ -1,9 +1,21 @@
 package Chap8;
 
+import java.util.Stack;
+
 public class Problem2 {
     int[][] grid;
     int rowMax, colMax;
     int[][] cache;
+    Stack<Coords> s = new Stack<>();
+
+    class Coords {
+        int x, y;
+
+        Coords(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 
     void setGrid(int[][] grid) {
         this.grid = grid;
@@ -14,7 +26,7 @@ public class Problem2 {
     int getCountOf(int[][] grid) {
         setGrid(grid);
 
-        return countImpl(0, 0);
+        return countImplIter(0, 0);
     }
 
     int countImpl(int x, int y) {
@@ -28,6 +40,31 @@ public class Problem2 {
         else {
             return countImpl(x + 1, y) + countImpl(x, y + 1);
         }
+    }
+
+    int countImplIter(int x, int y) {
+        int result = 0;
+        Coords temp;
+
+        s.push(new Coords(x, y));
+
+        while (!s.empty()) {
+            temp = s.pop();
+
+            if (isNotValid(temp.x, temp.y)) {
+                continue;
+            }
+            else if (isArrived(temp.x, temp.y)){
+                result += 1;
+                continue;
+            }
+            else {
+                s.push(new Coords(temp.x+1, temp.y));
+                s.push(new Coords(temp.x, temp.y+1));
+            }
+        }
+
+        return result;
     }
 
     boolean isNotValid(int x, int y) {

@@ -32,9 +32,4 @@ public class Problem1Test {
         assertEquals(149, p1.climbStairs(9));
         assertEquals(274, p1.climbStairs(10));
     }
-
-    @Test(timeout = 1000)
-    public void speed() {
-        assertEquals(53798080, p1.climbStairs(30));
-    }
 }

@@ -2,7 +2,7 @@ package Chap10;
 
 import java.util.Arrays;
 
-public class Quicksork {
+public class QuickSort {
     public static void main(String[] args) {
         int[] arr = new int[] {2, 7, 9, 1, 5, 3, 8, 4};
 
