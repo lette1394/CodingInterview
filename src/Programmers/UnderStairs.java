@@ -3,7 +3,18 @@ package Programmers;
 import java.util.Stack;
 
 public class UnderStairs {
+    class Node {
+        int x, y, pre;
+        Node(int x, int y, int pre) {
+            this.x = x;
+            this.y = y;
+            this.pre = pre;
+        }
+    }
+
     int[][] grid;
+
+    Stack<Node> stack = new Stack<>();
 
     int count(int[][] grid) {
         this.grid = grid;
@@ -11,28 +22,38 @@ public class UnderStairs {
         return count(0, 0, 999999);
     }
 
-    int count(int x, int y, int pre) {
+    int count(int X, int Y, int PRE) {
         int result = 0;
+        Node current;
+        stack.push(new Node(X, Y, PRE));
 
-        if (!isDownSide(x, y, pre)) {
-            return 0;
-        }
+        while (!stack.empty()) {
+            current = stack.pop();
+            int x = current.x;
+            int y = current.y;
+            int pre = current.pre;
 
-        if (isArrived(x, y)) {
-            return 1;
-        }
+            if (!isDownSide(x, y, pre)) {
+                continue;
+            }
 
-        if (isValid(x+1, y)) {
-            result += count(x+1, y, grid[y][x]);
-        }
-        if (isValid(x-1, y)) {
-            result += count(x-1, y, grid[y][x]);
-        }
-        if (isValid(x, y+1)) {
-            result += count(x, y+1, grid[y][x]);
-        }
-        if (isValid(x, y-1)) {
-            result += count(x, y-1, grid[y][x]);
+            if (isArrived(x, y)) {
+                result += 1;
+                continue;
+            }
+
+            if (isValid(x+1, y)) {
+                stack.push(new Node(x+1, y, grid[y][x]));
+            }
+            if (isValid(x-1, y)) {
+                stack.push(new Node(x-1, y, grid[y][x]));
+            }
+            if (isValid(x, y+1)) {
+                stack.push(new Node(x, y+1, grid[y][x]));
+            }
+            if (isValid(x, y-1)) {
+                stack.push(new Node(x, y-1, grid[y][x]));
+            }
         }
         return result;
     }
