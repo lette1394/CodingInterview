@@ -1,44 +1,58 @@
 package Programmers;
 
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class UnderStairs {
     int[][] grid;
+    int[][] cache;
 
     int count(int[][] grid) {
         this.grid = grid;
+        this.cache = new int[500][500];
 
-        return count(0, 0, 999999);
+        for (int[] aCache : cache) {
+            Arrays.fill(aCache, -1);
+        }
+
+        return count(0, 0);
     }
 
-    int count(int x, int y, int pre) {
+    int count(int x, int y) {
         int result = 0;
+        int currentValue = grid[y][x];
 
-        if (!isDownSide(x, y, pre)) {
-            return 0;
+        if (cache[y][x] > 0) {
+            return cache[y][x];
         }
 
         if (isArrived(x, y)) {
             return 1;
         }
 
-        if (isValid(x+1, y)) {
-            result += count(x+1, y, grid[y][x]);
+        if (isValid(x+1, y, currentValue)) {
+            result += count(x+1, y);
         }
-        if (isValid(x-1, y)) {
-            result += count(x-1, y, grid[y][x]);
+        if (isValid(x-1, y, currentValue)) {
+            result += count(x-1, y);
         }
-        if (isValid(x, y+1)) {
-            result += count(x, y+1, grid[y][x]);
+        if (isValid(x, y+1, currentValue)) {
+            result += count(x, y+1);
         }
-        if (isValid(x, y-1)) {
-            result += count(x, y-1, grid[y][x]);
+        if (isValid(x, y-1, currentValue)) {
+            result += count(x, y-1);
         }
-        return result;
+        return cache[y][x] = result;
     }
 
-    private boolean isValid(int x, int y) {
+    private boolean isValid(int x, int y, int currentValue) {
+        return isUnderBoundary(x, y) && isDownSide(x, y, currentValue);
+    }
+
+    private boolean isUnderBoundary(int x, int y) {
         return 0 <= x && x < grid[0].length && 0 <= y && y < grid.length;
     }
 
@@ -46,26 +60,30 @@ public class UnderStairs {
         return x == grid[0].length-1 && y == grid.length-1;
     }
 
-    private boolean isDownSide(int x, int y, int pre) {
-        return grid[y][x] < pre;
+    private boolean isDownSide(int x, int y, int beforeValue) {
+        return grid[y][x] < beforeValue;
     }
 
-    int[][] parse() {
-        Scanner sc = new Scanner(System.in);
+    int[][] parse() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int row = sc.nextInt();
-        int col = sc.nextInt();
+        int row = Integer.parseInt(st.nextToken());
+        int col = Integer.parseInt(st.nextToken());
+
         int[][] result = new int[row][col];
 
         for (int i = 0; i < row; i++) {
+            st = new StringTokenizer(br.readLine());
+
             for (int j = 0; j < col; j++) {
-                result[i][j] = sc.nextInt();
+                result[i][j] = Integer.parseInt(st.nextToken());
             }
         }
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         UnderStairs u = new UnderStairs();
         int[][] grid = u.parse();
 
