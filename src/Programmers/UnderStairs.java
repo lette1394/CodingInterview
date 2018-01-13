@@ -6,21 +6,23 @@ import java.util.Stack;
 
 public class UnderStairs {
     class Node {
-        int x, y, pre, result;
-        Node(int x, int y, int pre) {
+        int x, y, tilValue;
+        Node(int x, int y, int tilValue) {
             this.x = x;
             this.y = y;
-            this.pre = pre;
+            this.tilValue = tilValue;
         }
     }
 
     int[][] grid;
     int[][] cache;
+
     Stack<Node> stack = new Stack<>();
 
     int count(int[][] grid) {
         this.grid = grid;
         this.cache = new int[grid.length][grid[0].length];
+
         for (int i = 0; i < cache.length; i++) {
             Arrays.fill(cache[i], -1);
         }
@@ -28,39 +30,47 @@ public class UnderStairs {
     }
 
     int count(int X, int Y, int PRE) {
-        int result = 0;
-        Node currentNode;
+        int result = 1;
+        Node current;
         stack.push(new Node(X, Y, PRE));
 
         while (!stack.empty()) {
-            currentNode = stack.pop();
-            int x = currentNode.x;
-            int y = currentNode.y;
+            current = stack.pop();
+            int x = current.x;
+            int y = current.y;
+            int beforeValue = current.tilValue;
             int currentValue = grid[y][x];
 
+            if (cache[y][x] == 0) {
+                continue;
+            }
+            else if (cache[y][x] > 0) {
+                result *= cache[y][x];
+            }
+
             if (isArrived(x, y)) {
-                result += 1;
+                cache[y][x] = 1;
                 continue;
             }
 
-            if (isValid(x+1, y, currentValue)) {
+            if (isValid(x+1, y, beforeValue)) {
                 stack.push(new Node(x+1, y, currentValue));
             }
-            if (isValid(x-1, y, currentValue)) {
+            if (isValid(x-1, y, beforeValue)) {
                 stack.push(new Node(x-1, y, currentValue));
             }
-            if (isValid(x, y+1, currentValue)) {
+            if (isValid(x, y+1, beforeValue)) {
                 stack.push(new Node(x, y+1, currentValue));
             }
-            if (isValid(x, y-1, currentValue)) {
+            if (isValid(x, y-1, beforeValue)) {
                 stack.push(new Node(x, y-1, currentValue));
             }
         }
         return result;
     }
 
-    private boolean isValid(int x, int y, int pre) {
-        return isUnderBoundary(x, y) && toDownSide(x, y, pre);
+    private boolean isValid(int x, int y, int beforeValue) {
+        return isUnderBoundary(x, y) && isToDownSide(x, y, beforeValue);
     }
 
     private boolean isUnderBoundary(int x, int y) {
@@ -71,7 +81,7 @@ public class UnderStairs {
         return x == grid[0].length-1 && y == grid.length-1;
     }
 
-    private boolean toDownSide(int x, int y, int pre) {
+    private boolean isToDownSide(int x, int y, int pre) {
         return grid[y][x] < pre;
     }
 
