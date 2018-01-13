@@ -10,6 +10,9 @@ public class UnderStairs {
     private int[][] grid;
     private int[][] cache;
 
+    static int[] dx = { -1, 0, 1, 0 };
+    static int[] dy = { 0, -1, 0, 1 };
+
     int count(int[][] grid) {
         this.grid = grid;
         this.cache = new int[500][500];
@@ -22,34 +25,27 @@ public class UnderStairs {
     }
 
     private int count(int x, int y) {
-        int result = 0;
-        int currentValue = grid[y][x];
+        if (cache[y][x] > 0) {
+            return cache[y][x];
+        }
 
         if (isArrived(x, y)) {
             return 1;
         }
 
-        if (cache[y][x] > 0) {
-            return cache[y][x];
-        }
-
         if (cache[y][x] == -1) {
             cache[y][x] = 0;
+            for (int i = 0; i < 4; i++) {
+                int nx = dx[i] + x;
+                int ny = dy[i] + y;
 
-            if (isValid(x + 1, y, currentValue)) {
-                result += count(x + 1, y);
-            }
-            if (isValid(x - 1, y, currentValue)) {
-                result += count(x - 1, y);
-            }
-            if (isValid(x, y + 1, currentValue)) {
-                result += count(x, y + 1);
-            }
-            if (isValid(x, y - 1, currentValue)) {
-                result += count(x, y - 1);
+                if (isValid(nx, ny, grid[y][x])) {
+                    cache[y][x] += count(nx, ny);
+                }
             }
         }
-        return cache[y][x] = result;
+
+        return cache[y][x];
     }
 
     private boolean isValid(int x, int y, int currentValue) {
