@@ -85,4 +85,11 @@ public class UnderStairs {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        UnderStairs u = new UnderStairs();
+        int[][] grid = u.parse();
+
+        System.out.println(u.count(grid));
+    }
 }
