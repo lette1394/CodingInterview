@@ -1,14 +1,31 @@
 package Programmers;
 
+import Chap16.Problem5;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class UnderStairs {
+    Logger logger = LoggerFactory.getLogger(Problem5.class);
+
+    class Node {
+        int x, y, acc;
+        Node(int x, int y, int acc) {
+            this.x = x;
+            this.y = y;
+            this.acc = acc;
+        }
+    }
     private int[][] grid;
     private int[][] cache;
+
+    Stack<Node> stack = new Stack<>();
 
     static int[] dx = { -1, 0, 1, 0 };
     static int[] dy = { 0, -1, 0, 1 };
@@ -21,31 +38,51 @@ public class UnderStairs {
             Arrays.fill(aCache, -1);
         }
 
-        return count(0, 0);
+        cache[grid.length-1][grid[0].length-1] = 1;
+
+        return count(grid[0].length-1, grid.length-1);
     }
 
-    private int count(int x, int y) {
-        if (cache[y][x] > 0) {
-            return cache[y][x];
-        }
+    private int count(int X, int Y) {
+        int result = 0;
+        stack.push(new Node(X, Y, 0));
 
-        if (isArrived(x, y)) {
-            return 1;
-        }
+        while (!stack.empty()) {
+            Node node = stack.pop();
+            int x = node.x;
+            int y = node.y;
 
-        if (cache[y][x] == -1) {
-            cache[y][x] = 0;
-            for (int i = 0; i < 4; i++) {
-                int nx = dx[i] + x;
-                int ny = dy[i] + y;
+            logger.debug("(x, y) : " + node.x + ", " + node.y);
 
-                if (isValid(nx, ny, grid[y][x])) {
-                    cache[y][x] += count(nx, ny);
+
+            if (cache[y][x] > 0) {
+                result += cache[y][x];
+                continue;
+            }
+
+            if (isArrived(x, y)) {
+                result += 1;
+                continue;
+            }
+
+            if (cache[y][x] == -1) {
+                cache[y][x] = 0;
+                int count = 0;
+
+                for (int i = 0; i < 4; i++) {
+                    int nx = dx[i] + x;
+                    int ny = dy[i] + y;
+
+                    if (isValid(nx, ny, grid[y][x])) {
+                        stack.push(new Node(nx, ny, 0));
+                        count++;
+                    }
                 }
+                cache[y][x] = count;
             }
         }
 
-        return cache[y][x];
+        return result;
     }
 
     private boolean isValid(int x, int y, int currentValue) {
@@ -57,11 +94,11 @@ public class UnderStairs {
     }
 
     private boolean isArrived(int x, int y) {
-        return x == grid[0].length-1 && y == grid.length-1;
+        return x == 0 && y == 0;
     }
 
     private boolean isToDownSide(int x, int y, int beforeValue) {
-        return grid[y][x] < beforeValue;
+        return grid[y][x] > beforeValue;
     }
 
     int[][] parse() throws IOException {

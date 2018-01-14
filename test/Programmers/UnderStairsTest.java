@@ -39,6 +39,11 @@ public class UnderStairsTest {
                 {0, 0}
         }));
 
+        assertEquals(0, u.count(new int[][] {
+                {0, 0, 0},
+                {0 ,0, 0}
+        }));
+
         assertEquals(1, u.count(new int[][] {
                 {1, 0}
         }));

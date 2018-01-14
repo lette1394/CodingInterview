@@ -42,6 +42,7 @@ public class Problem1 {
     int goUpWHILE(int remain) {
         int result = 0;
         int temp;
+        int[] cache = new int[10000];
 
         stack.push(remain);
         while (!stack.empty()) {
