@@ -10,9 +10,9 @@ import java.util.StringTokenizer;
 public class Problem4 {
 
     int[][] grid;
-    boolean[] processed;
-    StringBuilder sb = new StringBuilder();
-    Queue<Integer> queue = new ArrayDeque<>();
+    private boolean[] processed;
+    private StringBuilder sb = new StringBuilder();
+    private Queue<Integer> queue = new ArrayDeque<>();
 
     public void setGrid() {
         InputStreamReader in = new InputStreamReader(System.in);
@@ -25,6 +25,7 @@ public class Problem4 {
             e.printStackTrace();
         }
 
+        assert token != null;
         int size = token.countTokens();
 
         grid = new int[size][size];
@@ -82,18 +83,16 @@ public class Problem4 {
     }
 
     private boolean columnIsZero(int col) {
-
-        for (int i = 0; i < grid.length; i++) {
-            if (grid[i][col] != 0) {
+        for (int[] row : grid) {
+            if (row[col] != 0) {
                 return false;
             }
         }
-
         return true;
     }
 
 
-    public void setMyLineZero(int row) {
+    private void setMyLineZero(int row) {
         for (int i = 0; i < grid.length; i++) {
             grid[row][i] = 0;
         }
