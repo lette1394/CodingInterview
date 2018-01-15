@@ -47,12 +47,12 @@ public class Problem4 {
     String getOrder() {
         setGrid();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < grid.length; i++) {
             addClearNode();
             appendNode();
         }
 
-        return sb.toString();
+        return sb.toString().trim();
     }
 
     private void appendNode() {
@@ -78,7 +78,7 @@ public class Problem4 {
     }
 
     private boolean isProcessed(int i) {
-        return !processed[i];
+        return processed[i];
     }
 
     private boolean columnIsZero(int col) {

@@ -48,6 +48,6 @@ public class Problem4Test {
         InputStream in = new ByteArrayInputStream(inputData.getBytes());
         System.setIn(in);
 
-        assertEquals("", p4.getOrder());
+        assertEquals("e f a b d c", p4.getOrder());
     }
 }
