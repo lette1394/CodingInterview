@@ -13,6 +13,11 @@ import java.io.InputStream;
 public class Problem4Test {
     Problem4 p4;
 
+    void simulateSTDIN(String input) {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+    }
+
     @Before
     public void before() {
         p4 = new Problem4();
@@ -24,10 +29,9 @@ public class Problem4Test {
         String line2 = "a d\nf b\nb d\nf a\nd c\n";
         String inputData = line1 + line2;
 
-        InputStream in = new ByteArrayInputStream(inputData.getBytes());
-        System.setIn(in);
-
+        simulateSTDIN(inputData);
         p4.setGrid();
+
         assertArrayEquals(new int[][] {
                 {0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 1, 0, 0},
@@ -40,14 +44,23 @@ public class Problem4Test {
     }
 
     @Test
-    public void getOrder() {
+    public void getOrder1() {
         String line1 = "a b c d e f\n";
         String line2 = "a d\nf b\nb d\nf a\nd c\n";
         String inputData = line1 + line2;
 
-        InputStream in = new ByteArrayInputStream(inputData.getBytes());
-        System.setIn(in);
+        simulateSTDIN(inputData);
 
         assertEquals("e f a b d c", p4.getOrder());
     }
+
+    @Test
+    public void boundary() {
+        String line1 = "a\n";
+
+        simulateSTDIN(line1);
+
+        assertEquals("a", p4.getOrder());
+    }
+
 }
