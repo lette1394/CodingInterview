@@ -38,9 +38,7 @@ public class Problem3Test {
 
         node9.children[0] = node10;
 
-
-
-        assertEquals("0 1 3 4 5 6 7 2 9 10 8", p.DFS(node));
+        assertEquals("0 1 3 4 5 6 7 2 9 10 8", p.DFS(node, 0));
 
     }
 }

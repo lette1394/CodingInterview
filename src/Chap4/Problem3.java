@@ -9,10 +9,6 @@ public class Problem3 {
 
     Problem3() {
         depthList = new LinkedList<>();
-
-        for (LinkedList<Node> list : depthList) {
-            list = new LinkedList<>();
-        }
     }
 
     String DFS(Node root, int depth) {
@@ -31,9 +27,15 @@ public class Problem3 {
         sb.append(current.value);
         sb.append(" ");
 
+        if (depthList.size() < depth+1) {
+            depthList.add(new LinkedList<>());
+        }
+
+        depthList.get(depth).add(current);
+
         for (Node node : current.children) {
             if (node != null) {
-                DFSImpl(node, sb);
+                DFSImpl(node, depth++, sb);
             }
         }
     }
