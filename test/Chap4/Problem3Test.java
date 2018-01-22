@@ -7,8 +7,7 @@ public class Problem3Test {
 
     Problem3 p = new Problem3();
 
-    @Test
-    public void dfs() {
+    Node getExampleTree() {
         Node node = new Node(0);
         Node node1 = new Node(1);
         Node node2 = new Node(2);
@@ -38,7 +37,26 @@ public class Problem3Test {
 
         node9.children[0] = node10;
 
+        return node;
+    }
+
+    @Test
+    public void dfs() {
+        Node node = getExampleTree();
+
         assertEquals("0 1 3 4 5 6 7 2 9 10 8", p.DFS(node, 0));
 
+    }
+
+    @Test
+    public void printLinkedNode() {
+        Node node = getExampleTree();
+        p.DFS(node, 0);
+
+        assertEquals("0 \n" +
+                "1 2 \n" +
+                "3 4 9 8 \n" +
+                "5 10 \n" +
+                "6 7", p.ListToString());
     }
 }

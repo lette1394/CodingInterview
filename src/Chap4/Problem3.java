@@ -35,9 +35,27 @@ public class Problem3 {
 
         for (Node node : current.children) {
             if (node != null) {
-                DFSImpl(node, depth++, sb);
+                DFSImpl(node, depth+1, sb);
             }
         }
+    }
+
+    String ListToString() {
+        StringBuilder root = new StringBuilder();
+
+        for (LinkedList<Node> list : depthList) {
+            StringBuilder sb = new StringBuilder();
+
+            for (Node node : list) {
+                sb.append(node.value);
+                sb.append(" ");
+            }
+
+            root.append(sb);
+            root.append("\n");
+        }
+
+        return root.toString().trim();
     }
 }
 
