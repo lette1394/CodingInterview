@@ -44,19 +44,15 @@ public class Problem3Test {
     public void dfs() {
         Node node = getExampleTree();
 
-        assertEquals("0 1 3 4 5 6 7 2 9 10 8", p.DFS(node, 0));
+        assertEquals("0 1 3 4 5 6 7 2 9 10 8", p.DFS(node));
 
     }
 
     @Test
     public void printLinkedNode() {
         Node node = getExampleTree();
-        p.DFS(node, 0);
+        p.DFS(node);
 
-        assertEquals("0 \n" +
-                "1 2 \n" +
-                "3 4 9 8 \n" +
-                "5 10 \n" +
-                "6 7", p.ListToString());
+        assertEquals("", p.ListToString());
     }
 }

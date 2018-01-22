@@ -11,7 +11,7 @@ public class Problem3 {
         depthList = new LinkedList<>();
     }
 
-    String DFS(Node root, int depth) {
+    String DFS(Node root) {
         StringBuilder sb = new StringBuilder();
 
         DFSImpl(root, 0, sb);
@@ -20,10 +20,6 @@ public class Problem3 {
     }
 
     void DFSImpl(Node current, int depth, StringBuilder sb) {
-        if (current.visited) {
-            return ;
-        }
-
         sb.append(current.value);
         sb.append(" ");
 
@@ -57,12 +53,13 @@ public class Problem3 {
 
         return root.toString().trim();
     }
+
 }
 
 class Node {
     Node[] children = new Node[2];
     int value;
-    boolean visited;
+    int depth;
 
     Node(int value) {
         this.value = value;
