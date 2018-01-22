@@ -44,7 +44,7 @@ public class Problem4Test {
     }
 
     @Test
-    public void getOrder1() {
+    public void getOrder1() throws IOException {
         String line1 = "a b c d e f\n";
         String line2 = "a d\nf b\nb d\nf a\nd c\n";
         String inputData = line1 + line2;
@@ -55,7 +55,7 @@ public class Problem4Test {
     }
 
     @Test
-    public void boundary() {
+    public void boundary() throws IOException {
         String line1 = "a\n";
 
         simulateSTDIN(line1);

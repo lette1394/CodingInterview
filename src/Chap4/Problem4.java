@@ -14,7 +14,7 @@ public class Problem4 {
     private StringBuilder sb = new StringBuilder();
     private Queue<Integer> queue = new ArrayDeque<>();
 
-    public void setGrid() {
+    public void setGrid() throws IOException {
         InputStreamReader in = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(in);
 
@@ -45,7 +45,7 @@ public class Problem4 {
         }
     }
 
-    String getOrder() {
+    String getOrder() throws IOException {
         setGrid();
 
         for (int i = 0; i < grid.length; i++) {
