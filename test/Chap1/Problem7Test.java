@@ -59,5 +59,55 @@ public class Problem7Test {
                 p.rotate(new int[][] {
                         {11, 22, 33}
                 }));
+
+        assertArrayEquals(new int[][] {
+                        {100},
+                        {200},
+                        {300}
+                },
+                p.rotate(new int[][] {
+                        {100, 200, 300}
+                }));
     }
+
+    @Test
+    public void FourByOne() {
+        assertArrayEquals(new int[][] {
+                        {11},
+                        {22},
+                        {33},
+                        {44}
+                },
+                p.rotate(new int[][] {
+                        {11, 22, 33, 44}
+                }));
+    }
+
+    @Test
+    public void OneByTwo() {
+        assertArrayEquals(new int[][] {
+                        {22, 11}
+                },
+                p.rotate(new int[][] {
+                        {11},
+                        {22}
+                }));
+    }
+
+    @Test
+    public void OneByFour() {
+        assertArrayEquals(new int[][] {
+                        {22, 11, 77, 88}
+                },
+                p.rotate(new int[][] {
+                        {88},
+                        {77},
+                        {11},
+                        {22}
+                }));
+    }
+
+
+
+
 }
