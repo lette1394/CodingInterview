@@ -7,6 +7,11 @@ public class Problem7Test {
     Problem7 p = new Problem7();
 
     @Test
+    public void nullTest() {
+        assertArrayEquals(null, p.rotate(null));
+    }
+
+    @Test
     public void one() {
         assertArrayEquals(new int[][] {
                         {0}
@@ -106,6 +111,43 @@ public class Problem7Test {
                         {22}
                 }));
     }
+
+    @Test
+    public void TwoByTwo() {
+         assertArrayEquals(new int[][] {
+                        {33, 11},
+                        {44, 22}
+                },
+                p.rotate(new int[][] {
+                        {11, 22},
+                        {33, 44}
+                }));
+    }
+
+    @Test
+    public void ThreeByTwo() {
+        assertArrayEquals(new int[][] {
+                        {55, 33, 11},
+                        {66, 44, 22}
+                },
+                p.rotate(new int[][] {
+                        {11, 22},
+                        {33, 44},
+                        {55, 66}
+                }));
+
+        assertArrayEquals(new int[][] {
+                        {5, 3, 1},
+                        {6, 4, 2}
+                },
+                p.rotate(new int[][] {
+                        {1, 2},
+                        {3, 4},
+                        {5, 6}
+                }));
+    }
+
+
 
 
 
