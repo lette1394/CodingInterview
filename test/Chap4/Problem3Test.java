@@ -55,4 +55,10 @@ public class Problem3Test {
 
         assertEquals("", p.ListToString());
     }
+
+    @Test
+    public void travel() {
+        Node node = getExampleTree();
+        p.inorderTravel(node);
+    }
 }

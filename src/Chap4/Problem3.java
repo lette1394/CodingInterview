@@ -6,9 +6,18 @@ import java.util.List;
 public class Problem3 {
 
     List<LinkedList<Node>> depthList;
+    StringBuilder sb = new StringBuilder();
 
     Problem3() {
         depthList = new LinkedList<>();
+    }
+
+    void inorderTravel(Node node) {
+        if (node != null) {
+            inorderTravel(node.children[0]);
+            System.out.println(node.value);
+            inorderTravel(node.children[1]);
+        }
     }
 
     String DFS(Node root) {
