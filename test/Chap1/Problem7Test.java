@@ -147,9 +147,32 @@ public class Problem7Test {
                 }));
     }
 
+    @Test
+    public void ThreeByThree() {
+        assertArrayEquals(new int[][] {
+                        {77, 44, 11},
+                        {88, 55, 22},
+                        {99, 66, 33}
+                },
+                p.rotate(new int[][] {
+                        {11, 22, 33},
+                        {44, 55, 66},
+                        {77, 88, 99}
+                }));
+    }
 
-
-
-
-
+    @Test
+    public void FourByThree(){
+        assertArrayEquals(new int[][] {
+                        {100, 77, 44, 11},
+                        {110, 88, 55, 22},
+                        {120, 99, 66, 33}
+                },
+                p.rotate(new int[][] {
+                        {11, 22, 33},
+                        {44, 55, 66},
+                        {77, 88, 99},
+                        {100, 110, 120}
+                }));
+    }
 }
