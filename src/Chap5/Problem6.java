@@ -17,7 +17,6 @@ public class Problem6 {
             }
             XOR >>>= 1;
         }
-
         return result;
     }
 }

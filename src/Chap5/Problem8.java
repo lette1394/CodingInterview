@@ -34,12 +34,23 @@ public class Problem8 {
     }
 
     private void setOne(byte[] screen, int index) {
-        screen[index] = Byte.parseByte("-1");
+        screen[index] = (byte)0b11111111;
     }
 
     private void printScreen(byte[] screen) {
         for (byte b : screen) {
-            System.out.print(Integer.toBinaryString(b) + ' ');
+            System.out.print(printBytesToBinaryString(b) + ' ');
         }
+    }
+
+    private String printBytesToBinaryString(byte b) {
+        StringBuilder sb = new StringBuilder();
+
+        while (b != 0) {
+            sb.append(b % 2);
+            b /= 2;
+        }
+
+        return sb.toString();
     }
 }
