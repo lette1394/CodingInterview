@@ -22,7 +22,7 @@
   <property name="slf4j.version" value="1.7.20"/>
   <property name="org.slf4j:slf4j-api:jar" value="c:/Users/ceki/.m2/repository/org/slf4j/slf4j-api/1.7.20/slf4j-api-1.7.20.jar"/>
 
-  <property name="org.apache.felix:org.apache.felix.main:jar" value="c:/Users/ceki/.m2/repository/org/apache/felix/org.apache.felix.main/2.0.2/org.apache.felix.main-2.0.2.jar" />
+  <property name="org.apache.felix:org.apache.felix.run:jar" value="c:/Users/ceki/.m2/repository/org/apache/felix/org.apache.felix.run/2.0.2/org.apache.felix.run-2.0.2.jar" />
 -->
 
 	<echo message="compile classpath: ${currentVersion}" />

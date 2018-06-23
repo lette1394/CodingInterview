@@ -11,18 +11,18 @@ public class Problem18Test {
 
     @Test
     public void zero() throws Exception {
-        assertEquals(false, p.solve("", ""));
+        assertEquals(false, p.doesMatch("", ""));
     }
 
     @Test
     public void one() throws Exception {
-        assertEquals(true, p.solve("a", "a"));
-        assertEquals(true, p.solve("c", "a"));
-        assertEquals(true, p.solve("hellohelloworld", "aab"));
-        assertEquals(true, p.solve("hellohelloworld", "a"));
-        assertEquals(true, p.solve("hellohelloworld", "b"));
-        assertEquals(false, p.solve("hellohelloworld", "aba"));
-        assertEquals(true, p.solve("hellohelloworld", "bba"));
+        assertEquals(true, p.doesMatch("a", "a"));
+        assertEquals(true, p.doesMatch("c", "a"));
+        assertEquals(true, p.doesMatch("hellohelloworld", "aab"));
+        assertEquals(true, p.doesMatch("hellohelloworld", "a"));
+        assertEquals(true, p.doesMatch("hellohelloworld", "b"));
+        assertEquals(false, p.doesMatch("hellohelloworld", "aba"));
+        assertEquals(true, p.doesMatch("hellohelloworld", "bba"));
     }
 
     @Test
@@ -37,41 +37,41 @@ public class Problem18Test {
 
     @Test
     public void main() throws Exception {
-        assertEquals(true, p.solve("catcatgocatgo", "a"));
-        assertEquals(true, p.solve("catcatgocatgo", "ab"));
-        assertEquals(true, p.solve("catcatgocatgo", "b"));
-        assertEquals(true, p.solve("catcatgocatgo", "aabab"));
+        assertEquals(true, p.doesMatch("catcatgocatgo", "a"));
+        assertEquals(true, p.doesMatch("catcatgocatgo", "ab"));
+        assertEquals(true, p.doesMatch("catcatgocatgo", "b"));
+        assertEquals(true, p.doesMatch("catcatgocatgo", "aabab"));
     }
 
     @Test
     public void main2() throws Exception {
-        assertEquals(true, p.solve("catgocatcatgo", "a"));
-        assertEquals(true, p.solve("catgocatcatgo", "ab"));
-        assertEquals(true, p.solve("catgocatcatgo", "b"));
-        assertEquals(true, p.solve("catgocatcatgo", "abaab"));
+        assertEquals(true, p.doesMatch("catgocatcatgo", "a"));
+        assertEquals(true, p.doesMatch("catgocatcatgo", "ab"));
+        assertEquals(true, p.doesMatch("catgocatcatgo", "b"));
+        assertEquals(true, p.doesMatch("catgocatcatgo", "abaab"));
     }
 
     @Test
     public void main3() throws Exception {
-        assertEquals(true, p.solve("hahahoohahahoo", "aab"));
+        assertEquals(true, p.doesMatch("hahahoohahahoo", "aab"));
     }
 
     @Test
     public void main4() throws Exception {
-        assertEquals(true, p.solve("hahahoohahahahaha", "a"));
-        assertEquals(true, p.solve("hahahoohahahahaha", "b"));
-        assertEquals(true, p.solve("hahahoohahahahaha", "aabaaaaa"));
+        assertEquals(true, p.doesMatch("hahahoohahahahaha", "a"));
+        assertEquals(true, p.doesMatch("hahahoohahahahaha", "b"));
+        assertEquals(true, p.doesMatch("hahahoohahahahaha", "aabaaaaa"));
     }
 
     @Test
     public void main5() throws Exception {
         String ex1 = "catcatgocatgo";
-        assertEquals(true, p.solve(ex1, "aabab"));
-        assertEquals(true, p.solve(ex1, "a"));
-        assertEquals(true, p.solve(ex1, "ab"));
-        assertEquals(true, p.solve(ex1, "abb"));
-        assertEquals(false, p.solve(ex1, "aaa"));
-        assertEquals(false, p.solve(ex1, "bb"));
-        assertEquals(false, p.solve(ex1, "baba"));
+        assertEquals(true, p.doesMatch(ex1, "aabab"));
+        assertEquals(true, p.doesMatch(ex1, "a"));
+        assertEquals(true, p.doesMatch(ex1, "ab"));
+        assertEquals(true, p.doesMatch(ex1, "abb"));
+        assertEquals(false, p.doesMatch(ex1, "aaa"));
+        assertEquals(false, p.doesMatch(ex1, "bb"));
+        assertEquals(false, p.doesMatch(ex1, "baba"));
     }
 }

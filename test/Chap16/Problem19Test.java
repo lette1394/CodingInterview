@@ -109,4 +109,20 @@ public class Problem19Test {
 
         assertEquals(result, p.solve(grid));
     }
+
+    @Test
+    public void main6() throws Exception {
+        int[][] grid = {
+                {0, 2, 1, 0},
+                {0, 0, 0, 1},
+                {1, 1, 0, 1},
+                {0, 1, 0, 1}
+        };
+
+        List<Integer> result = new ArrayList<>();
+        result.add(7);
+        result.add(1);
+
+        assertEquals(result, p.solve(grid));
+    }
 }

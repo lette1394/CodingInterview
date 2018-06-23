@@ -125,7 +125,7 @@ import org.slf4j.spi.LocationAwareLogger;
  * 346 [main] ERROR examples.SortAlgo - Tried to dump an uninitialized array.
  *   at org.log4j.examples.SortAlgo.dump(SortAlgo.java:58)
  *   at org.log4j.examples.Sort.main(Sort.java:64)
- * 467 [main] INFO  examples.Sort - Exiting main method.
+ * 467 [run] INFO  examples.Sort - Exiting run method.
  * </pre>
  *
  * <p>

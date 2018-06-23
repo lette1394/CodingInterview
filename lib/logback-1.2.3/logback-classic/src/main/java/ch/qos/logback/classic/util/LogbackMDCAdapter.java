@@ -48,7 +48,7 @@ public class LogbackMDCAdapter implements MDCAdapter {
     // requires copying the map.
     // See http://jira.qos.ch/browse/LOGBACK-620 for the original discussion.
 
-    // We no longer use CopyOnInheritThreadLocal in order to solve LBCLASSIC-183
+    // We no longer use CopyOnInheritThreadLocal in order to doesMatch LBCLASSIC-183
     // Initially the contents of the thread local in parent and child threads
     // reference the same map. However, as soon as a thread invokes the put()
     // method, the maps diverge as they should.

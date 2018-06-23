@@ -33,7 +33,7 @@ public class Main {
         logger.info("About to interrupt");
         ot.interrupt();
         logger.info("After interrupt");
-        logger.info("Leaving main");
+        logger.info("Leaving run");
 
     }
 }
