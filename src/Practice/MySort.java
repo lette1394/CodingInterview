@@ -34,6 +34,10 @@ public class MySort {
     }
 
     private static void _quickSort(int[] arr, int l, int r) {
+        quickSortImpl2(arr, l, r);
+    }
+
+    private static void quickSortImpl1(int[] arr, int l, int r) {
         if (l >= r) return;
 
         int lo = l;
@@ -48,9 +52,26 @@ public class MySort {
                 swap(arr, lo++, hi--);
             }
         }
-        _quickSort(arr, l, mid - 1);
-        _quickSort(arr, mid + 1, r);
+        quickSortImpl1(arr, l, mid - 1);
+        quickSortImpl1(arr, mid + 1, r);
     }
+
+    private static void quickSortImpl2(int[] arr, int l, int r) {
+        if (l >= r) return;
+        int pivot = arr[r];
+
+        int mid = l;
+        for (int i = mid; i < r; i++) {
+            if (arr[i] <= pivot) {
+                swap(arr, mid++, i);
+            }
+        }
+        swap(arr, mid, r);
+
+        quickSortImpl2(arr, l, mid - 1);
+        quickSortImpl2(arr, mid + 1, r);
+    }
+
 
     static int iterate(long times) {
         int sum = 0;
