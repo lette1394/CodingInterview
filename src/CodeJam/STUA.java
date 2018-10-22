@@ -13,7 +13,7 @@ public class STUA {
     public static void main(String[] args) throws IOException {
         final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        StringTokenizer st = new StringTokenizer(in.readLine());
+        StringTokenizer st = new StringTokenizer(in.readLine().trim());
 
         int testCases = Integer.parseInt(st.nextToken());
 
