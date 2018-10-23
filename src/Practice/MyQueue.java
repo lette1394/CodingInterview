@@ -27,7 +27,6 @@ public class MyQueue {
 
         Collections.binarySearch(mylist, false);
 
-
         for (boolean b : mylist) {
             System.out.println(b);
         }
