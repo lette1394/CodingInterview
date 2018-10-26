@@ -42,6 +42,7 @@ public class MinimumPathSum {
             int nextAcc = acc + grid[y][x];
             minPathSum(grid, y, x+1, nextAcc);
             minPathSum(grid, y+1, x, nextAcc);
+
         }
     }
 
