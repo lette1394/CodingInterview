@@ -19,6 +19,8 @@ public class StoneGame {
             for (int size = 1; size <= N; ++size) {
                 for (int i = 0; i + size <= N; ++i) {
                     int j = i + size - 1;
+
+                    // parity can be [(j-i) % 2, (i+j) % 2, ...]
                     int parity = (j + i + N) % 2;
 
                     if (parity == 1) {
