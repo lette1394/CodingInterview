@@ -2,6 +2,8 @@ package LeetCode;
 
 public class RangeSumQuery {
 
+    // https://leetcode.com/problems/range-sum-query-immutable/
+    // 303. RangeSumQuery - immutable.
     // core idea.
     // pre-calculate accumulated sum
 
